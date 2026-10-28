@@ -91,6 +91,9 @@ em { font-style: italic; }
 .hero h1 em { color: var(--rose); }
 .lede { font-size: 19px; color: var(--soft); max-width: 36ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; align-items: center; }
+.deal { display: flex; align-items: center; gap: 10px; width: fit-content; max-width: 100%; margin-top: 22px; padding: 10px 16px; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--butter); color: var(--ink); font-weight: 600; font-size: 15px; text-decoration: none; }
+.deal b { flex: none; padding: 2px 8px; border-radius: 999px; background: var(--rose); color: #fff; font-family: var(--mono, monospace); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.deal:hover { background: var(--blush); }
 .note { position: relative; display: inline-block; margin-top: 26px; margin-left: 8px; font-family: var(--hand); font-size: 24px; color: var(--rose); transform: rotate(-2deg); }
 .note svg { position: absolute; left: -46px; top: -24px; width: 44px; color: var(--rose); }
 .stats { display: flex; gap: 0; margin-top: 40px; border: 1.5px solid var(--ink); border-radius: 14px; overflow: hidden; width: fit-content; background: var(--card); }
