@@ -225,7 +225,7 @@ section { padding: 100px 0; }
 .signup-msg { grid-column: 1 / -1; font-family: var(--mono); font-size: 13px; min-height: 1em; }
 .signup.done .signup-row { display: none; }
 .thanks { padding: 60px 16px 80px; max-width: 760px; }
-.thanks .logo { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--ink); text-decoration: none; display: inline-block; margin-bottom: 40px; }
+.thanks .logo { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--ink); text-decoration: none; display: block; margin-bottom: 40px; }
 .thanks h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 6vw, 68px); line-height: 1.02; margin: 12px 0 16px; }
 .thanks-grid { display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0; }
 .thanks-more a { color: var(--rose-deep); }
