@@ -113,6 +113,7 @@ if (signup) signup.addEventListener('submit', async (ev) => {
     const res = await fetch(signup.action, { method: 'POST', body: new FormData(signup), headers: { Accept: 'application/json' } });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || data.status === 'failed') throw new Error(data.errors ? data.errors.messages.join(' ') : 'failed');
+    if (data.status === 'quarantined' && data.url) { window.location.href = data.url; return; } // Kit's bot check
     signup.classList.add('done');
     msg.textContent = "you're in! check your inbox and tap confirm to get your freebies.";
   } catch (err) {
