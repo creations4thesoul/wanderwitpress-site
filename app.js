@@ -101,3 +101,22 @@ const io = new IntersectionObserver((entries) => entries.forEach((en) => {
   if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
 }), { rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// email signup (Kit): submit in place, fall back to a normal post
+const signup = document.getElementById('signup');
+if (signup) signup.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const msg = signup.querySelector('.signup-msg');
+  const btn = signup.querySelector('button');
+  btn.disabled = true; msg.textContent = 'sending...';
+  try {
+    const res = await fetch(signup.action, { method: 'POST', body: new FormData(signup), headers: { Accept: 'application/json' } });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.status === 'failed') throw new Error(data.errors ? data.errors.messages.join(' ') : 'failed');
+    signup.classList.add('done');
+    msg.textContent = "you're in! check your inbox and tap confirm to get your freebies.";
+  } catch (err) {
+    btn.disabled = false;
+    msg.textContent = 'that didn’t go through. check the email address and try again.';
+  }
+});
