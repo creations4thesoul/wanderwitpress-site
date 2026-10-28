@@ -303,6 +303,7 @@ footer a:hover { color: #fff; }
   .quiz-a { padding: 30px 24px; min-height: 260px; }
   .collage { height: 470px; }
   .free { padding: 44px 24px 30px; }
+  .signup { grid-template-columns: 1fr; padding: 32px 24px; }
   section { padding: 76px 0; }
   .shelf img { width: 22%; }
   .shelf { flex-wrap: wrap; border-bottom: 0; }
@@ -317,7 +318,6 @@ footer a:hover { color: #fff; }
   .stats div { padding: 10px 14px; }
   .stats strong { font-size: 24px; }
   .free ul { grid-template-columns: 1fr; }
-  .signup { grid-template-columns: 1fr; padding: 32px 22px; }
   .signup-row { flex-direction: column; }
   .fan { height: 230px; }
   .result { grid-template-columns: 110px 1fr; }
