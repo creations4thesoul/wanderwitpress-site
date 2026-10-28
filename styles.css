@@ -161,11 +161,24 @@ section { padding: 100px 0; }
 .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .tab { font: 500 13px var(--mono); padding: 9px 14px 9px; border-radius: 10px 10px 0 0; border: 1.5px solid var(--ink); border-bottom-width: 4px; background: var(--card); cursor: pointer; text-transform: lowercase; transition: transform .15s; }
 .tab:hover { transform: translateY(-2px); }
+.tab small { font-size: 11px; opacity: .6; margin-left: 2px; }
+.tab[data-filter="bundles"] { background: var(--butter); }
+.tab[data-filter="holiday"] { background: var(--blush); }
 .tab[data-filter="kids"] { background: var(--sky); }
-.tab[data-filter="seniors"] { background: var(--lilac); }
-.tab[data-filter="mindful"] { background: var(--blush); }
-.tab[data-filter="explore"] { background: var(--sage); }
+.tab[data-filter="books"] { background: var(--lilac); }
+.tab[data-filter="sheets"] { background: var(--sage); }
 .tab[aria-pressed="true"] { background: var(--ink); color: #fff; transform: translateY(-3px); }
+.shop-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 26px; }
+.shop-tools .search { flex: 1 1 260px; }
+.shop-tools input, .shop-tools select { width: 100%; font: 500 15px var(--sans, inherit); color: var(--ink); background: var(--card); border: 1.5px solid var(--ink); border-radius: 12px; padding: 11px 14px; }
+.shop-tools input:focus, .shop-tools select:focus { outline: 3px solid var(--butter); outline-offset: 1px; }
+.shop-tools .sort { display: flex; align-items: center; gap: 8px; flex: 0 1 230px; }
+.shop-count { color: var(--soft); margin-left: auto; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.shop-empty { text-align: center; padding: 40px 0; color: var(--soft); }
+.linklike { background: none; border: 0; padding: 0; font: inherit; color: var(--rose-deep); text-decoration: underline; cursor: pointer; }
+.more-wrap { display: flex; justify-content: center; margin-top: 30px; }
+.more-wrap .btn[hidden] { display: none; }
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .product { position: relative; background: var(--card); border: 1.5px solid var(--ink); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; }
 .product:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--ink); }
