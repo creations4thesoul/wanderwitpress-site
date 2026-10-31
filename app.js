@@ -121,3 +121,31 @@ if (signup) signup.addEventListener('submit', async (ev) => {
     msg.textContent = 'that didn’t go through. check the email address and try again.';
   }
 });
+
+// holiday countdown: shows the first phase that hasn't ended yet (visitor's local time)
+const cd = document.querySelector('.countdown');
+if (cd) {
+  const phases = JSON.parse(cd.dataset.phases).map((p) => ({ ...p, t: new Date(p.end).getTime() }));
+  const pad = (n) => String(n).padStart(2, '0');
+  const tick = () => {
+    const now = Date.now();
+    const p = phases.find((x) => x.t > now);
+    if (!p) { cd.hidden = true; return; }
+    const s = Math.floor((p.t - now) / 1000), d = Math.floor(s / 86400);
+    cd.querySelector('.cd-msg').textContent = p.msg;
+    cd.querySelector('.cd-time').textContent = (d ? `${d}d ` : '') + `${pad(Math.floor(s / 3600) % 24)}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
+    const a = cd.querySelector('.cd-link'); a.textContent = p.link; a.href = p.href;
+    cd.hidden = false;
+  };
+  tick(); setInterval(tick, 1000);
+}
+
+// spooky sound previews: one plays at a time
+let playing = null;
+document.querySelectorAll('.sound').forEach((b) => b.addEventListener('click', () => {
+  if (playing) { playing.audio.pause(); playing.btn.setAttribute('aria-pressed', 'false'); }
+  if (playing && playing.btn === b) { playing = null; return; }
+  const audio = new Audio(b.dataset.src);
+  audio.addEventListener('ended', () => { b.setAttribute('aria-pressed', 'false'); playing = null; });
+  audio.play(); b.setAttribute('aria-pressed', 'true'); playing = { audio, btn: b };
+}));
