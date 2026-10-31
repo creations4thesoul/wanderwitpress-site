@@ -122,14 +122,14 @@ if (signup) signup.addEventListener('submit', async (ev) => {
   }
 });
 
-// holiday countdown: shows the first phase that hasn't ended yet (visitor's local time)
+// holiday countdown: shows the phase running now (visitor's local time); phases live in build_site.COUNTDOWN
 const cd = document.querySelector('.countdown');
 if (cd) {
-  const phases = JSON.parse(cd.dataset.phases).map((p) => ({ ...p, t: new Date(p.end).getTime() }));
+  const phases = JSON.parse(cd.dataset.phases).map((p) => ({ ...p, s: p.start ? new Date(p.start).getTime() : 0, t: new Date(p.end).getTime() }));
   const pad = (n) => String(n).padStart(2, '0');
   const tick = () => {
     const now = Date.now();
-    const p = phases.find((x) => x.t > now);
+    const p = phases.find((x) => x.s <= now && x.t > now);
     if (!p) { cd.hidden = true; return; }
     const s = Math.floor((p.t - now) / 1000), d = Math.floor(s / 86400);
     cd.querySelector('.cd-msg').textContent = p.msg;
