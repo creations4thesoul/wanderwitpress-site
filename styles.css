@@ -365,3 +365,12 @@ footer a:hover { color: #fff; }
   .sound-cta { flex-direction: row; flex-wrap: wrap; }
 }
 @media (max-width: 560px) { .screen-grid { grid-template-columns: 1fr; } }
+
+/* free TV loops */
+.free-loops { grid-template-columns: 1fr; }
+.free-loop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.free-loop { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.free-loop .screen { width: 100%; }
+.free-loop .screen-price { background: var(--ink); }
+.free-more { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+@media (max-width: 760px) { .free-loop-grid { grid-template-columns: 1fr; } }
