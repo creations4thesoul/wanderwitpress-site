@@ -242,6 +242,14 @@ section { padding: 100px 0; }
 .shelf::after { content: ""; position: absolute; left: 0; right: 0; bottom: -22px; height: 12px; background: radial-gradient(ellipse at center, rgba(0,0,0,.18), transparent 70%); }
 .shelf img { width: 13%; border-radius: 3px 3px 0 0; box-shadow: 0 6px 16px -6px rgba(0,0,0,.5); transition: transform .25s; }
 .shelf img:hover { transform: translateY(-14px) rotate(-2deg); }
+.shelf.books { gap: 48px; padding-bottom: 0; }
+.shelf .book { display: flex; align-items: end; gap: 20px; width: 44%; max-width: 470px; color: inherit; text-decoration: none; }
+.shelf .book img { width: 46%; flex: none; }
+.shelf .book span { display: block; padding-bottom: 18px; font-size: 15px; line-height: 1.45; }
+.shelf .book b { display: block; font-size: 19px; margin-bottom: 6px; }
+.shelf .book em { display: block; margin-top: 10px; font-style: normal; font-weight: 700; color: var(--rose); }
+.shelf .book:hover img { transform: translateY(-14px) rotate(-2deg); }
+@media (max-width: 760px) { .shelf.books { flex-direction: column; align-items: center; border-bottom: 0; } .shelf .book { width: 100%; } }
 .shelf-note { text-align: center; margin-top: 40px; font-family: var(--hand); font-size: 26px; color: var(--rose); }
 
 /* ---------- share ---------- */
